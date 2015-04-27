@@ -61,8 +61,8 @@
                                 <Embed-Directory>WEB-INF/lib</Embed-Directory>
                                 <Embed-Transitive>true</Embed-Transitive>
                                 <Import-Package>*;resolution:=optional</Import-Package>
-                                <Web-ContextPath>/sample</Web-ContextPath>
-                                <Webapp-Context>/sample</Webapp-Context>
+                                <Web-ContextPath>/HelloWebService</Web-ContextPath>
+                                <Webapp-Context>/HelloWebService</Webapp-Context>
                                 <_wab>src/main/webapp</_wab>
                             </instructions>
                             <supportedProjectTypes>
