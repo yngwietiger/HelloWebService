@@ -12,23 +12,24 @@
     <name>JAX-WS webservice with maven</name>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>com.sun.xml.ws</groupId>-->
-            <!--<artifactId>jaxws-rt</artifactId>-->
-            <!--<version>2.1.3</version>-->
-        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.2.5</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
 
     </dependencies>
 
     <build>
-        <finalName>HelloService</finalName>
+        <finalName>HelloWebService</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -54,12 +55,15 @@
                         </goals>
                         <configuration>
                             <instructions>
-                                <Private-Package>com.webservices.demo</Private-Package>
-                                <Web-ContextPath>hello</Web-ContextPath>
-                                <Bundle-ClassPath>.,WEB-INF/classes,{maven-dependencies}</Bundle-ClassPath>
+                                <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                                <Bundle-Version>${project.version}</Bundle-Version>
                                 <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
                                 <Embed-Directory>WEB-INF/lib</Embed-Directory>
-                                <Import-Package>javax.servlet,javax.servlet.http</Import-Package>
+                                <Embed-Transitive>true</Embed-Transitive>
+                                <Import-Package>*;resolution:=optional</Import-Package>
+                                <Web-ContextPath>/sample</Web-ContextPath>
+                                <Webapp-Context>/sample</Webapp-Context>
+                                <_wab>src/main/webapp</_wab>
                             </instructions>
                             <supportedProjectTypes>
                                 <supportedProjectType>war</supportedProjectType>
